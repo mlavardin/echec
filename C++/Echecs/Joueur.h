@@ -9,12 +9,13 @@
 
 #include "Piece.h"
 
-class Joueur {
-private:
+class Joueur
+{
+   private:
     Piece m_pieces[16];
 
-public:
-    Joueur(bool white);
+   public:
+    Joueur( bool white );
     void affiche();
     bool isWhite();
 };

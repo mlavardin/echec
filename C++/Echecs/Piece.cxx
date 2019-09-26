@@ -12,74 +12,72 @@ using namespace std;
 
 Piece::Piece()
 {
-  // ne fait rien => objet instancie mais non valide.
-  cout << "Une Piece construite par defaut" << endl;
+    // ne fait rien => objet instancie mais non valide.
+    cout << "Une Piece construite par defaut" << endl;
 }
 
-Piece::Piece(const Piece & autre)
+Piece::Piece( const Piece &autre )
 {
-  m_x=autre.m_x;
-  m_y=autre.m_y;
-  m_white=autre.m_white;
-  cout << "Une Piece construite par copie" << endl;
+    m_x     = autre.m_x;
+    m_y     = autre.m_y;
+    m_white = autre.m_white;
+    cout << "Une Piece construite par copie" << endl;
 }
 
 Piece::~Piece()
 {
-  cout << "Une Piece detruite" << endl;
+    cout << "Une Piece detruite" << endl;
 }
 
 Piece::Piece( int x, int y, bool white )
 {
-  m_x = x;
-  m_y = y;
-  m_white = white;
-  cout << "Une Piece construite" << endl;
+    m_x     = x;
+    m_y     = y;
+    m_white = white;
+    cout << "Une Piece construite" << endl;
 }
 
 void
 Piece::init( int x, int y, bool white )
 {
-  m_x = x;
-  m_y = y;
-  m_white = white;
+    m_x     = x;
+    m_y     = y;
+    m_white = white;
 }
 
 void
 Piece::move( int x, int y )
 {
-  m_x = x;
-  m_y = y;
+    m_x = x;
+    m_y = y;
 }
 
 int
 Piece::x()
 {
-  return m_x;
+    return m_x;
 }
 
 int
 Piece::y()
 {
-  return m_y;
+    return m_y;
 }
 
 bool
 Piece::isWhite()
 {
-  return m_white;
+    return m_white;
 }
 
 bool
 Piece::isBlack()
 {
-  return !m_white;
+    return !m_white;
 }
 
 void
 Piece::affiche()
 {
-  cout << "Piece: x=" << m_x << " y=" << m_y << " "
-       << ( m_white ? "blanche" : "noire" ) << endl;
+    cout << "Piece: x=" << m_x << " y=" << m_y << " " << ( m_white ? "blanche" : "noire" ) << endl;
 }
-
