@@ -12,7 +12,7 @@
 // Pour utiliser les flux de iostream sans mettre "std::" tout le temps.
 using namespace std;
 
-bool compare(Piece & p, Piece & q)
+bool compare(Piece p, Piece q)
 {
   return (p.x()==q.x()) && (p.y()==q.y());
 }

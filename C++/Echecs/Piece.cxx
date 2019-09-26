@@ -16,6 +16,14 @@ Piece::Piece()
   cout << "Une Piece construite par defaut" << endl;
 }
 
+Piece::Piece(const Piece & autre)
+{
+  m_x=autre.m_x;
+  m_y=autre.m_y;
+  m_white=autre.m_white;
+  cout << "Une Piece construite par copie" << endl;
+}
+
 Piece::~Piece()
 {
   cout << "Une Piece detruite" << endl;
