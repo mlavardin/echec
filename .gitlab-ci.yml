@@ -1,0 +1,22 @@
+image: tthor/test
+
+stages:
+  - build
+  - test
+
+build_chess:
+  stage: build
+  script:
+    - cd C++/Echecs
+    - make
+  artifacts:
+    paths:
+      - C++/Echecs/testPiece
+
+test_chess:
+  stage: test
+  dependencies:
+    - build_chess
+  script:
+    - cd C++/Echecs
+    - make cov
