@@ -1,0 +1,52 @@
+## Install SonarQube (7.0)
+SONAR_HOME=/opt/sonarqube
+
+## Edit <install_directory>/conf/sonar.properties to configure the database settings
+sonar.jdbc.username=sonarqube
+sonar.jdbc.password=mon_mot_de_passe
+sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube
+
+## Configuration PostgeSQL
+$ apt-get install postgresql
+$ sudo -i -u postgres 
+Password:
+
+$ psql
+postgres=# CREATE USER sonarqube;
+postgres=# ALTER ROLE sonarqube WITH CREATEDB;
+postgres=# CREATE DATABASE sonarqube OWNER sonarqube;
+postgres=# ALTER USER sonarqube WITH ENCRYPTED PASSWORD 'mon_mot_de_passe';
+postgres=# \q
+
+## Service SonarQube
+#Create the file /etc/init.d/sonar with this content:
+  #!/bin/sh
+  #
+  # rc file for SonarQube
+  #
+  # chkconfig: 345 96 10
+  # description: SonarQube system (www.sonarsource.org)
+  #
+  ### BEGIN INIT INFO
+  # Provides: sonar
+  # Required-Start: $network
+  # Required-Stop: $network
+  # Default-Start: 3 4 5
+  # Default-Stop: 0 1 2 6
+  # Short-Description: SonarQube system (www.sonarsource.org)
+  # Description: SonarQube system (www.sonarsource.org)
+  ### END INIT INFO
+  
+  /usr/bin/sonar $*
+
+# Register SonarQube at boot time
+sudo ln -s $SONAR_HOME/bin/linux-x86-64/sonar.sh /usr/bin/sonar
+sudo chmod 755 /etc/init.d/sonar
+sudo update-rc.d sonar defaults
+
+## Do not run SonarQube as root (since 6.7 TLS)
+groupadd sonarqube
+useradd -c "Sonar System User" -d /opt/sonarqube -g sonarqube -s /bin/bash sonarqube
+chown -R sonarqube:sonarqube /opt/sonarqube
+# Edit $SONAR_HOME/bin/linux-x86-64/sonar.sh
+# Find RUN_AS_USER entry, uncomment it and assign your SonarQube username
