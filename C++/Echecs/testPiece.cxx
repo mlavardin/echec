@@ -12,6 +12,10 @@
 // Pour utiliser les flux de iostream sans mettre "std::" tout le temps.
 using namespace std;
 
+bool compare(Piece & p, Piece & q)
+{
+  return (p.x()==q.x()) && (p.y()==q.y());
+}
 
 /**
  * Programme principal
@@ -30,13 +34,14 @@ int main( int argc, char** argv )
   p1.affiche();
   p2.affiche();
 
-  //Piece tbl[4];
+  cout << (compare(p1,p2)?"memes coordonnees":"coordonnees differentes") << endl;
+
+  /*
   Joueur jb(true);
   Joueur jn(false);
-
-  // On affiche
   jb.affiche();
   jn.affiche();
+  */
 
   // les objets definis dans cette fonction sont automatiquement detruits.
   // Ex : p1
