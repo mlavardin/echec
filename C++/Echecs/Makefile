@@ -3,13 +3,14 @@ EXE=testPiece
 
 OBJ=${SRC_CXX:.cxx=.o}
 
+CPP = g++ -g -std=c++11 --coverage
+# -fsanitize=address -fno-omit-frame-pointer
+
 all: $(EXE)
 
 $(EXE): $(OBJ) $(EXE).o
-	g++ --coverage $(OBJ) $(EXE).o -o $(EXE)
+	$(CPP) $(OBJ) $(EXE).o -o $(EXE)
 
-%.o: %.cxx
-	g++ -c -g --coverage $<
 
 cov: $(EXE)
 	./$(EXE)
@@ -22,6 +23,12 @@ cov-html: cov
 	gcovr -r . --html -o coverage.html --html-details
 	#open coverage.html
 
+-include ${OBJ:.o=.d}
+
+%.o: %.cxx
+	$(CPP) -c $*.cxx -o $*.o
+	$(CPP) -MM $*.cxx > $*.d
+
 clean:
-	@rm -f $(OBJ) $(EXE).o $(EXE) *~ *.xml *.html *.lcov *.gcda *.gcno
+	@rm -f $(OBJ) $(EXE).o $(EXE) *~ *.xml *.html *.lcov *.gcda *.gcno *.d
 
