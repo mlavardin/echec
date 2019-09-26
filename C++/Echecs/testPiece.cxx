@@ -22,11 +22,15 @@ int main( int argc, char** argv )
   Piece p1;
   // p1 est une piece blanche de coordonnees (3,3)
   p1.init( 3, 3, true );
+  // constructeur special pour p2
+  Piece p2(4, 4, false);
 
-  // On l'affiche
-  cout << "Piece: x=" << p1.x() << " y=" << p1.y() << " "
-       << ( p1.isWhite() ? "blanche" : "noire" ) << endl;
+  if (p2.isBlack())
+    cout << "Une piece noire" << endl;
 
+  // On affiche
+  p1.affiche();
+  p2.affiche();
   // les objets definis dans cette fonction sont automatiquement detruits.
   // Ex : p1
 }

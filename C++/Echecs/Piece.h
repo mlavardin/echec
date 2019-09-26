@@ -19,11 +19,14 @@ private:
 
 public:
   Piece();
+  Piece( int x, int y, bool white );
   void init( int x, int y, bool white );
   void move( int x, int y );
   int x();
   int y();
   bool isWhite();
+  bool isBlack();
+  void affiche();
 };
 
 #endif // !defined Piece_h
