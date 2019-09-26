@@ -19,6 +19,7 @@ private:
 
 public:
   Piece();
+  ~Piece();
   Piece( int x, int y, bool white );
   void init( int x, int y, bool white );
   void move( int x, int y );

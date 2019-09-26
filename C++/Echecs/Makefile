@@ -1,4 +1,4 @@
-SRC_CXX=Piece.cxx
+SRC_CXX=Piece.cxx Joueur.cxx
 EXE=testPiece
 
 OBJ=${SRC_CXX:.cxx=.o}

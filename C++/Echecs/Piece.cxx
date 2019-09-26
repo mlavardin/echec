@@ -13,6 +13,12 @@ using namespace std;
 Piece::Piece()
 {
   // ne fait rien => objet instancie mais non valide.
+  cout << "Une Piece construite par defaut" << endl;
+}
+
+Piece::~Piece()
+{
+  cout << "Une Piece detruite" << endl;
 }
 
 Piece::Piece( int x, int y, bool white )
@@ -20,6 +26,7 @@ Piece::Piece( int x, int y, bool white )
   m_x = x;
   m_y = y;
   m_white = white;
+  cout << "Une Piece construite" << endl;
 }
 
 void

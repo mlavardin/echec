@@ -7,7 +7,7 @@
 // Utile pour l'affichage
 #include <iostream>
 #include "Piece.h"
-
+#include "Joueur.h"
 
 // Pour utiliser les flux de iostream sans mettre "std::" tout le temps.
 using namespace std;
@@ -27,10 +27,17 @@ int main( int argc, char** argv )
 
   if (p2.isBlack())
     cout << "Une piece noire" << endl;
-
-  // On affiche
   p1.affiche();
   p2.affiche();
+
+  //Piece tbl[4];
+  Joueur jb(true);
+  Joueur jn(false);
+
+  // On affiche
+  jb.affiche();
+  jn.affiche();
+
   // les objets definis dans cette fonction sont automatiquement detruits.
   // Ex : p1
 }
