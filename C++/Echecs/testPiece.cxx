@@ -30,12 +30,14 @@ main( int argc, char **argv )
     p1.init( 3, 3, true );
     // constructeur special pour p2
     Piece p2( 4, 4, false );
+    Piece p3 = p2;
 
     if ( p2.isBlack() )
         cout << "Une piece noire" << endl;
     p1.affiche();
     p2.affiche();
 
+    p1 = p2;
     cout << ( compare( p1, p2 ) ? "memes coordonnees" : "coordonnees differentes" ) << endl;
 
     /*

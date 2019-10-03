@@ -25,6 +25,16 @@ Piece::Piece( const Piece &autre )
     cout << "Une Piece construite par copie" << endl;
 }
 
+Piece &
+Piece::operator=( const Piece &autre )
+{
+    m_x     = autre.m_x;
+    m_y     = autre.m_y;
+    m_white = autre.m_white;
+    cout << "Une Piece affectee" << endl;
+    return *this;
+}
+
 Piece::~Piece()
 {
     cout << "Une Piece detruite" << endl;

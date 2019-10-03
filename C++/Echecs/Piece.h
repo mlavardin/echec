@@ -22,6 +22,7 @@ class Piece
     ~Piece();
     Piece( int x, int y, bool white );
     Piece( const Piece &autre );
+    Piece & operator=( const Piece &autre );
     void init( int x, int y, bool white );
     void move( int x, int y );
     int  x() const;
