@@ -48,6 +48,13 @@ Echiquier::getPiece( int x, int y )
 bool
 Echiquier::placer( Piece* p )
 {
+	if (p==nullptr) return false; // piece vide
+	int x=p->x();
+	int y=p->y();
+	assert( x >= 1 && x <= 8 && y >= 1 && y <= 8 ); // coordonnees invalides
+	if (getPiece(x,y)!=nullptr) return false; // case occupee
+	m_cases[(x-1)+8*(y-1)]=p;
+	return true;
 }
 
 
