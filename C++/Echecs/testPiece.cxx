@@ -18,6 +18,18 @@ compare( const Piece & p, const Piece & q )
     return ( p.x() == q.x() ) && ( p.y() == q.y() );
 }
 
+Piece *
+allouerPiece(int x, int y, bool white)
+{
+    Piece *ptr = new Piece( x, y, white );
+    return ptr;
+
+    /* FAUX : allocation statique sur la pile
+    Piece tmp = Piece( x, y, white );
+    return &tmp;
+    */
+}
+
 /**
  * Programme principal
  */
@@ -40,6 +52,10 @@ main( int argc, char **argv )
     p1 = p2;
     cout << ( compare( p1, p2 ) ? "memes coordonnees" : "coordonnees differentes" ) << endl;
 
+    //Piece *ptr = new Piece( p2 );
+    Piece * ptr = allouerPiece( 1, 1, false );
+
+    delete ptr;
     /*
     Joueur jb(true);
     Joueur jn(false);
