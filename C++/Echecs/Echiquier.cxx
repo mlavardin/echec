@@ -7,6 +7,7 @@
 #include <iostream>
 // A besoin de la declaration de la classe
 #include "Echiquier.h"
+#include "assert.h"
 
 using namespace std;
 
@@ -16,8 +17,9 @@ using namespace std;
  */
 Echiquier::Echiquier()
 {
+    for ( int i = 0; i < 64; i++)
+        m_cases[i] = nullptr;
 }
-
 
 /**
  * Recupere la piece situee sur une case.
@@ -31,8 +33,9 @@ Echiquier::Echiquier()
 Piece*
 Echiquier::getPiece( int x, int y )
 {
+    assert( x >= 1 && x <= 8 && y >= 1 && y <= 8 );
+    return m_cases[( x - 1 ) + 8 * ( y - 1 )];
 }
-
 
 /**
  * Place une piece sur l'echiquier, aux coordonnees specifiees dans la piece.
@@ -97,7 +100,7 @@ Echiquier::affiche()
 	{
 	  char c;
 	  Piece* p = getPiece( x, y );
-	  if ( p == 0 )
+	  if ( p == nullptr )
 	    c = ( ( x + y ) % 2 ) == 0 ? '#' : '.';
 	  else
 	    c = p->isWhite() ? 'B' : 'N';

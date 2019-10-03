@@ -8,6 +8,7 @@
 #include <iostream>
 #include "Piece.h"
 #include "Joueur.h"
+#include "Echiquier.h"
 
 // Pour utiliser les flux de iostream sans mettre "std::" tout le temps.
 using namespace std;
@@ -54,8 +55,14 @@ main( int argc, char **argv )
 
     //Piece *ptr = new Piece( p2 );
     Piece * ptr = allouerPiece( 1, 1, false );
-
     delete ptr;
+
+    Piece *tbl =new Piece[4];
+    delete[] tbl;
+
+    Echiquier e;
+    e.affiche();
+
     /*
     Joueur jb(true);
     Joueur jn(false);
