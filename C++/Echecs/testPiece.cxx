@@ -13,7 +13,7 @@
 using namespace std;
 
 bool
-compare( Piece p, Piece q )
+compare( const Piece & p, const Piece & q )
 {
     return ( p.x() == q.x() ) && ( p.y() == q.y() );
 }
