@@ -17,9 +17,9 @@ class Joueur
 
    public:
     Joueur( bool white );
-    void affiche();
-    bool isWhite();
-    void placerPieces(Echiquier & e);
+    void         affiche();
+    virtual bool isWhite() = 0;
+    void         placerPieces( Echiquier &e );
 };
 
 class JoueurBlanc : public Joueur

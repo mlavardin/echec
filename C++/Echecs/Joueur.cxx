@@ -37,11 +37,13 @@ Joueur::affiche()
         m_pieces[i].affiche();
 }
 
+/* methode virtuelle pure
 bool
 Joueur::isWhite()
 {
     return m_pieces[0].isWhite();
 }
+*/
 
 bool
 JoueurBlanc::isWhite()
