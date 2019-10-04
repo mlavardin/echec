@@ -67,14 +67,21 @@ main( int argc, char **argv )
     JoueurNoir  jn;
     // jb.affiche();
     // jn.affiche();
-    jb.placerPieces( e );
-    jn.placerPieces( e );
-    e.affiche();
 
     Roi rb( true );
     Roi rn( false );
     Reine qb( true );
     Reine qn( false );
+
+    e.placer( &rb );
+    e.placer( &rn );
+    e.placer( &qb );
+    e.placer( &qn );
+
+    jb.placerPieces( e );
+    jn.placerPieces( e );
+
+    e.affiche();
 
     ptr = &p1;
     ptr->mouvementValide( e, 1, 1 );

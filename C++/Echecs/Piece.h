@@ -22,11 +22,11 @@ class Piece
 
    public:
     Piece();
-    ~Piece();
+    virtual ~Piece();
     Piece( int x, int y, bool white );
     Piece( const Piece &autre );
     Piece & operator=( const Piece &autre );
-    bool    mouvementValide( Echiquier &e, int x, int y );
+    virtual bool mouvementValide( Echiquier &e, int x, int y );
     void    init( int x, int y, bool white );
     void    move( int x, int y );
     int     x() const;
@@ -34,7 +34,7 @@ class Piece
     bool    isWhite() const;
     bool    isBlack() const;
     void    affiche() const;
-    char    codechar() const;
+    virtual char codechar() const;
 };
 
 class Roi : public Piece
