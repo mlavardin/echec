@@ -69,4 +69,20 @@ class Reine : public Tour, public Fou
      char codechar() const;
 };
 
+class Cavalier : public Piece
+{
+    public:
+     Cavalier( bool white, bool left );
+     bool mouvementValide( Echiquier &e, int x, int y );
+     char codechar() const;
+};
+
+class Pion : public Piece
+{
+    public:
+     Pion( bool white, int place );
+     bool mouvementValide( Echiquier &e, int x, int y );
+     char codechar() const;
+};
+
 #endif  // !defined Piece_h

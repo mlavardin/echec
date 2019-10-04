@@ -50,6 +50,16 @@ Reine::Reine(bool white) : Piece(4, white?1:8, white),
     cout << "Une Reine construite" << endl;
 }
 
+Cavalier::Cavalier(bool white, bool left) : Piece(left?2:7, white?1:8, white)
+{
+    cout << "Un Cavalier construit" << endl;
+}
+
+Pion::Pion(bool white, int place) : Piece(place, white?2:7, white)
+{
+    cout << "Un Pion construit" << endl;
+}
+
 Piece &
 Piece::operator=( const Piece &autre )
 {
@@ -93,7 +103,21 @@ bool
 Reine::mouvementValide(Echiquier &e, int x, int y)
 {
     cout << "mouvementValide de Reine" << endl;
-    return Fou::mouvementValide( e, x, y ) || Tour::mouvementValide( e, x, y );
+    return Fou::mouvementValide( e, x, y ) || Tour::mouvementValide( e, x, y );
+}
+
+bool
+Cavalier::mouvementValide(Echiquier &e, int x, int y)
+{
+    cout << "mouvementValide de Cavalier" << endl;
+    return false;
+}
+
+bool
+Pion::mouvementValide(Echiquier &e, int x, int y)
+{
+    cout << "mouvementValide de Pion" << endl;
+    return false;
 }
 
 Piece::~Piece()
@@ -182,4 +206,16 @@ char
 Reine::codechar() const
 {
     return m_white ? 'Q' : 'q';
+}
+
+char
+Cavalier::codechar() const
+{
+    return m_white ? 'C' : 'c';
+}
+
+char
+Pion::codechar() const
+{
+    return m_white ? 'P' : 'p';
 }

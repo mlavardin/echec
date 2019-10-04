@@ -83,6 +83,15 @@ main( int argc, char **argv )
     Tour tng( false, true );
     Tour tnd( false, false );
 
+    Cavalier cbg( true, true );
+    Cavalier cbd( true, false );
+    Cavalier cng( false, true );
+    Cavalier cnd( false, false );
+
+    Pion pbg( true, 1 );
+    Pion pbd( true, 8 );
+    Pion png( false, 1 );
+    Pion pnd( false, 8 );
 
     e.placer( &rb );
     e.placer( &rn );
@@ -98,6 +107,16 @@ main( int argc, char **argv )
     e.placer( &tbd );
     e.placer( &tng );
     e.placer( &tnd );
+
+    e.placer( &cbg );
+    e.placer( &cbd );
+    e.placer( &cng );
+    e.placer( &cnd );
+
+    e.placer( &pbg );
+    e.placer( &pbd );
+    e.placer( &png );
+    e.placer( &pnd );
 
     jb.placerPieces( e );
     jn.placerPieces( e );
