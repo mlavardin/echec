@@ -34,6 +34,16 @@ Roi::Roi(bool white) : Piece()
     cout << "Un Roi construit" << endl;
 }
 
+Fou::Fou(bool white, bool left) : Piece(left?3:6, white?1:8, white)
+{
+    cout << "Un Fou construit" << endl;
+}
+
+Tour::Tour(bool white, bool left) : Piece(left?1:8, white?1:8, white)
+{
+    cout << "Une Tour construite" << endl;
+}
+
 Reine::Reine(bool white) : Piece(4, white?1:8, white)
 {
     cout << "Une Reine construite" << endl;
@@ -61,6 +71,20 @@ bool
 Roi::mouvementValide(Echiquier &e, int x, int y)
 {
     cout << "mouvementValide de Roi" << endl;
+    return false;
+}
+
+bool
+Fou::mouvementValide(Echiquier &e, int x, int y)
+{
+    cout << "mouvementValide de Fou" << endl;
+    return false;
+}
+
+bool
+Tour::mouvementValide(Echiquier &e, int x, int y)
+{
+    cout << "mouvementValide de Tour" << endl;
     return false;
 }
 
@@ -139,6 +163,18 @@ char
 Roi::codechar() const
 {
     return m_white ? 'R' : 'r';
+}
+
+char
+Fou::codechar() const
+{
+    return m_white ? 'F' : 'f';
+}
+
+char
+Tour::codechar() const
+{
+    return m_white ? 'T' : 't';
 }
 
 char

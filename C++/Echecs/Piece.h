@@ -45,6 +45,22 @@ class Roi : public Piece
      char codechar() const;
 };
 
+class Fou : public Piece
+{
+    public:
+     Fou( bool white, bool left );
+     bool mouvementValide( Echiquier &e, int x, int y );
+     char codechar() const;
+};
+
+class Tour : public Piece
+{
+    public:
+     Tour( bool white, bool left );
+     bool mouvementValide( Echiquier &e, int x, int y );
+     char codechar() const;
+};
+
 class Reine : public Piece
 {
     public:
