@@ -45,7 +45,7 @@ class Roi : public Piece
      char codechar() const;
 };
 
-class Fou : public Piece
+class Fou : virtual public Piece
 {
     public:
      Fou( bool white, bool left );
@@ -53,7 +53,7 @@ class Fou : public Piece
      char codechar() const;
 };
 
-class Tour : public Piece
+class Tour : virtual public Piece
 {
     public:
      Tour( bool white, bool left );
@@ -61,7 +61,7 @@ class Tour : public Piece
      char codechar() const;
 };
 
-class Reine : public Piece
+class Reine : public Tour, public Fou
 {
     public:
      Reine( bool white );

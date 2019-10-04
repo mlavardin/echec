@@ -44,7 +44,8 @@ Tour::Tour(bool white, bool left) : Piece(left?1:8, white?1:8, white)
     cout << "Une Tour construite" << endl;
 }
 
-Reine::Reine(bool white) : Piece(4, white?1:8, white)
+Reine::Reine(bool white) : Piece(4, white?1:8, white),
+    Fou(white,true), Tour(white,true)
 {
     cout << "Une Reine construite" << endl;
 }
@@ -92,7 +93,7 @@ bool
 Reine::mouvementValide(Echiquier &e, int x, int y)
 {
     cout << "mouvementValide de Reine" << endl;
-    return false;
+    return Fou::mouvementValide( e, x, y ) || Tour::mouvementValide( e, x, y );
 }
 
 Piece::~Piece()
