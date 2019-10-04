@@ -71,6 +71,18 @@ main( int argc, char **argv )
     jn.placerPieces( e );
     e.affiche();
 
+    Roi rb( true );
+    Roi rn( false );
+    Reine qb( true );
+    Reine qn( false );
+
+    ptr = &p1;
+    ptr->mouvementValide( e, 1, 1 );
+    ptr = &rb;
+    ptr->mouvementValide( e, 1, 1 );
+    ptr = &qn;
+    ptr->mouvementValide( e, 1, 1 );
+
     // les objets definis dans cette fonction sont automatiquement detruits.
     // Ex : p1
 }

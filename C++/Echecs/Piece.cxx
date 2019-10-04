@@ -26,6 +26,19 @@ Piece::Piece( const Piece &autre )
     cout << "Une Piece construite par copie" << endl;
 }
 
+Roi::Roi(bool white) : Piece()
+{
+    m_x = 5;
+    m_y = white ? 1 : 8;
+    m_white = white;
+    cout << "Un Roi construit" << endl;
+}
+
+Reine::Reine(bool white) : Piece(4, white?1:8, white)
+{
+    cout << "Une Reine construite" << endl;
+}
+
 Piece &
 Piece::operator=( const Piece &autre )
 {
@@ -39,7 +52,22 @@ Piece::operator=( const Piece &autre )
 bool
 Piece::mouvementValide(Echiquier &e, int x, int y)
 {
-    assert( false ); // on ne doit pas passer ici
+    // on ne devrait pas passer ici
+    cout << "mouvementValide de Piece" << endl;
+    return false;
+}
+
+bool
+Roi::mouvementValide(Echiquier &e, int x, int y)
+{
+    cout << "mouvementValide de Roi" << endl;
+    return false;
+}
+
+bool
+Reine::mouvementValide(Echiquier &e, int x, int y)
+{
+    cout << "mouvementValide de Reine" << endl;
     return false;
 }
 
@@ -99,4 +127,22 @@ void
 Piece::affiche() const
 {
     cout << "Piece: x=" << m_x << " y=" << m_y << " " << ( m_white ? "blanche" : "noire" ) << endl;
+}
+
+char
+Piece::codechar() const
+{
+    return m_white ? 'B' : 'N';
+}
+
+char
+Roi::codechar() const
+{
+    return m_white ? 'R' : 'r';
+}
+
+char
+Reine::codechar() const
+{
+    return m_white ? 'Q' : 'q';
 }

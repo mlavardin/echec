@@ -110,8 +110,8 @@ Echiquier::affiche()
 	  if ( p == nullptr )
 	    c = ( ( x + y ) % 2 ) == 0 ? '#' : '.';
 	  else
-	    c = p->isWhite() ? 'B' : 'N';
-	  cout << c;
+          c = p->codechar(); // p->isWhite() ? 'B' : 'N';
+      cout << c;
 	}
       cout << " " << y << endl;
     }
