@@ -90,6 +90,18 @@ main( int argc, char **argv )
     ptr = &qn;
     ptr->mouvementValide( e, 1, 1 );
 
+    Roi *rptr = dynamic_cast<Roi *>( ptr );
+    if (nullptr==rptr)
+        cout << "erreur de transtypage" << endl;
+    else
+        cout << "transtypage reussi" << endl;
+    ptr = &rb;
+    rptr = dynamic_cast<Roi *>( ptr );
+    if (nullptr==rptr)
+        cout << "erreur de transtypage" << endl;
+    else
+        cout << "transtypage reussi" << endl;
+
     // les objets definis dans cette fonction sont automatiquement detruits.
     // Ex : p1
 }
