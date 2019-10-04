@@ -22,4 +22,18 @@ class Joueur
     void placerPieces(Echiquier & e);
 };
 
+class JoueurBlanc : public Joueur
+{
+    public:
+     JoueurBlanc();
+     bool isWhite();
+};
+
+class JoueurNoir : public Joueur
+{
+    public:
+     JoueurNoir();
+     bool isWhite();
+};
+
 #endif

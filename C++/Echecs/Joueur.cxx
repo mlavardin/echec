@@ -1,5 +1,8 @@
+#include <iostream>
 #include <assert.h>
 #include "Joueur.h"
+
+using namespace std;
 
 Joueur::Joueur(bool white)
 {
@@ -14,6 +17,17 @@ Joueur::Joueur(bool white)
         p=p+1;
     }
     assert(p==16);
+    cout << "Un Joueur cree" << endl;
+}
+
+JoueurBlanc::JoueurBlanc() : Joueur(true)
+{
+    cout << "Un Joueur Blanc cree" << endl;
+}
+
+JoueurNoir::JoueurNoir() : Joueur(false)
+{
+    cout << "Un Joueur Noir cree" << endl;
 }
 
 void
@@ -27,6 +41,18 @@ bool
 Joueur::isWhite()
 {
     return m_pieces[0].isWhite();
+}
+
+bool
+JoueurBlanc::isWhite()
+{
+    return true;
+}
+
+bool
+JoueurNoir::isWhite()
+{
+    return false;
 }
 
 void

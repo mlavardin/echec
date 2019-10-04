@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <assert.h>
 // A besoin de la declaration de la classe
 #include "Piece.h"
 
@@ -33,6 +34,13 @@ Piece::operator=( const Piece &autre )
     m_white = autre.m_white;
     cout << "Une Piece affectee" << endl;
     return *this;
+}
+
+bool
+Piece::mouvementValide(Echiquier &e, int x, int y)
+{
+    assert( false ); // on ne doit pas passer ici
+    return false;
 }
 
 Piece::~Piece()

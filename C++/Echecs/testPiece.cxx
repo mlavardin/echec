@@ -61,10 +61,12 @@ main( int argc, char **argv )
     delete[] tbl;
 
     Echiquier e;
-    Joueur jb(true);
-    Joueur jn(false);
-    //jb.affiche();
-    //jn.affiche();
+    //Joueur jb(true);
+    //Joueur jn(false);
+    JoueurBlanc jb;
+    JoueurNoir  jn;
+    // jb.affiche();
+    // jn.affiche();
     jb.placerPieces( e );
     jn.placerPieces( e );
     e.affiche();
