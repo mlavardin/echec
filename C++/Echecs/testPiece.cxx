@@ -67,61 +67,12 @@ main( int argc, char **argv )
     JoueurNoir  jn;
     // jb.affiche();
     // jn.affiche();
-
-    Roi rb( true );
-    Roi rn( false );
-    Reine qb( true );
-    Reine qn( false );
-
-    Fou fbg( true, true );
-    Fou fbd( true, false );
-    Fou fng( false, true );
-    Fou fnd( false, false );
-
-    Tour tbg( true, true );
-    Tour tbd( true, false );
-    Tour tng( false, true );
-    Tour tnd( false, false );
-
-    Cavalier cbg( true, true );
-    Cavalier cbd( true, false );
-    Cavalier cng( false, true );
-    Cavalier cnd( false, false );
-
-    Pion pbg( true, 1 );
-    Pion pbd( true, 8 );
-    Pion png( false, 1 );
-    Pion pnd( false, 8 );
-
-    e.placer( &rb );
-    e.placer( &rn );
-    e.placer( &qb );
-    e.placer( &qn );
-
-    e.placer( &fbg );
-    e.placer( &fbd );
-    e.placer( &fng );
-    e.placer( &fnd );
-
-    e.placer( &tbg );
-    e.placer( &tbd );
-    e.placer( &tng );
-    e.placer( &tnd );
-
-    e.placer( &cbg );
-    e.placer( &cbd );
-    e.placer( &cng );
-    e.placer( &cnd );
-
-    e.placer( &pbg );
-    e.placer( &pbd );
-    e.placer( &png );
-    e.placer( &pnd );
-
     jb.placerPieces( e );
     jn.placerPieces( e );
-
     e.affiche();
+
+    Roi rb( true );
+    Reine qn( false );
 
     ptr = &p1;
     ptr->mouvementValide( e, 1, 1 );
