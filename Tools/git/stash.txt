@@ -1,6 +1,0 @@
-git stash
-git stash show
-git stash list
-git pull
-git stash apply
-git stash drop
